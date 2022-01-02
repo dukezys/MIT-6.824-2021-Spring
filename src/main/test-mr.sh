@@ -7,7 +7,7 @@
 #RACE=
 
 # comment this to run the tests without the Go race detector.
-RACE=-race
+#RACE=-race
 
 # run the test in a fresh sub-directory.
 rm -rf mr-tmp
@@ -55,7 +55,7 @@ timeout -k 2s 180s ../mrworker ../../mrapps/wc.so &
 wait $pid
 
 # since workers are required to exit when a job is completely finished,
-# and not before, that means the job has finished.
+# and not before, that mean the job has finished.
 sort mr-out* | grep . > mr-wc-all
 if cmp mr-wc-all mr-correct-wc.txt
 then
@@ -68,7 +68,7 @@ fi
 
 # wait for remaining workers and coordinator to exit.
 wait
-
+ 
 #########################################################
 # now indexer
 rm -f mr-*
